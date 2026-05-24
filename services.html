@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services — Lush Looks Parlour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --brown-dark: #2f1f16;
+            --brown-mid: #5a4639;
+            --brown-accent: #a06a45;
+            --brown-light: #c0895f;
+            --cream: #fbf6f1;
+            --cream-mid: #f3eadf;
+            --cream-card: #ffffff;
+            --muted: #7a6e65;
+            --border: #e3dec9;
+        }
+
+        body {
+            font-family: 'Instrument Serif', serif;
+            background: var(--cream);
+            color: var(--brown-dark);
+        }
+
+        /* ── NAVBAR ── */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            background: #ffffff;
+            border-bottom: 1px solid var(--cream-mid);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-logo h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 22px;
+            color: var(--brown-dark);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--brown-dark);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding-bottom: 4px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--brown-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--brown-accent); }
+
+        /* ── PAGE HERO ── */
+        .page-hero {
+            background: var(--cream-card);
+            padding: 80px 10% 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--cream-mid);
+        }
+
+        .page-hero-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--brown-accent);
+            font-weight: 500;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .page-hero h1 {
+            font-size: 68px;
+            color: var(--brown-dark);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .page-hero p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ── CATEGORY NAV TABS ── */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 40px 5% 0;
+            flex-wrap: wrap;
+        }
+
+        .cat-tab {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--brown-mid);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cat-tab:hover,
+        .cat-tab.active {
+            background: var(--brown-dark);
+            color: #fff;
+            border-color: var(--brown-dark);
+            transform: none;
+        }
+
+        /* ── CATEGORY SECTIONS ── */
+        .category-section {
+            padding: 70px 10%;
+        }
+
+        .category-section:nth-child(even) {
+            background: var(--cream-card);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-header-left span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--brown-accent);
+            font-weight: 500;
+        }
+
+        .category-header-left h2 {
+            font-size: 48px;
+            color: var(--brown-dark);
+            margin-top: 6px;
+            line-height: 1.1;
+        }
+
+        .category-count {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        /* ── SERVICE CARDS GRID ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card-full {
+            background: var(--cream-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            transition: box-shadow 0.35s ease, transform 0.35s ease;
+        }
+
+        .category-section:nth-child(even) .service-card-full {
+            background: var(--cream);
+        }
+
+        .service-card-full:hover {
+            box-shadow: 0 16px 40px rgba(47, 31, 22, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .card-badge {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .badge-popular {
+            background: #fff3ea;
+            color: var(--brown-accent);
+        }
+
+        .badge-new {
+            background: #eaf5f0;
+            color: #3a7a5a;
+        }
+
+        .badge-premium {
+            background: #f5eaf5;
+            color: #7a3a7a;
+        }
+
+        .card-body {
+            padding: 28px;
+        }
+
+        .card-body h3 {
+            font-size: 26px;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .card-body .duration-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+
+        .card-body p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 28px;
+            border-top: 1px solid var(--border);
+            background: rgba(243, 234, 223, 0.3);
+        }
+
+        .card-price {
+            font-family: 'Instrument Serif', serif;
+            font-size: 24px;
+            color: var(--brown-dark);
+        }
+
+        .card-price span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            color: var(--muted);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .book-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            padding: 10px 20px;
+            background: var(--brown-dark);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            transform: none;
+        }
+
+        .book-btn:hover {
+            background: var(--brown-accent);
+            transform: none;
+        }
+
+        /* ── FEATURED / WIDE CARD ── */
+        .service-card-wide {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: stretch;
+            background: var(--brown-dark);
+            border-radius: 16px;
+            overflow: hidden;
+            color: #fff;
+            border: none;
+        }
+
+        .service-card-wide:hover {
+            box-shadow: 0 20px 50px rgba(47, 31, 22, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .wide-content {
+            padding: 45px;
+            flex: 1;
+        }
+
+        .wide-content .card-badge {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .wide-content h3 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .wide-content .duration-tag {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 16px;
+        }
+
+        .wide-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.7);
+            max-width: 480px;
+            margin-bottom: 30px;
+        }
+
+        .wide-content .book-btn {
+            background: var(--brown-accent);
+            padding: 13px 28px;
+            font-size: 13px;
+        }
+
+        .wide-content .book-btn:hover {
+            background: var(--brown-light);
+        }
+
+        .wide-price-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-width: 200px;
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-left: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .wide-price-block span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 10px;
+        }
+
+        .wide-price-block .price-big {
+            font-family: 'Instrument Serif', serif;
+            font-size: 52px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .wide-price-block .currency {
+            font-size: 20px;
+            vertical-align: super;
+        }
+
+        /* ── BOTTOM CTA ── */
+        .bottom-cta {
+            background: var(--brown-dark);
+            color: #fff;
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        .bottom-cta h2 {
+            font-size: 52px;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .bottom-cta p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 36px;
+            max-width: 440px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 16px 40px;
+            background: var(--brown-accent);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            transform: none;
+        }
+
+        .cta-btn:hover {
+            background: var(--brown-light);
+            transform: none;
+        }
+
+        /* ── FOOTER ── */
+        .footer {
+            background: #1e1208;
+            color: rgba(255,255,255,0.45);
+            text-align: center;
+            padding: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ── BOOKING MODAL ── */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(47, 31, 22, 0.6);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.show { display: flex; }
+
+        .modal-content {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 25px; top: 20px;
+            font-size: 30px;
+            color: var(--muted);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-modal:hover { color: var(--brown-dark); }
+
+        .modal-content h2 {
+            font-size: 36px;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .modal-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select {
+            font-family: 'Montserrat', sans-serif;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--cream);
+            font-size: 14px;
+            color: var(--brown-dark);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--brown-accent);
+        }
+
+        .form-row-inputs {
+            display: flex;
+            gap: 20px;
+        }
+
+        .submit-booking-btn {
+            width: 100%;
+            background: var(--brown-accent);
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s;
+            transform: none;
+        }
+
+        .submit-booking-btn:hover { background: var(--brown-dark); transform: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .page-hero h1 { font-size: 46px; }
+            .category-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .service-card-wide { flex-direction: column; }
+            .wide-price-block { border-left: none; border-top: 1px solid rgba(255,255,255,0.1); padding: 30px; }
+            .bottom-cta h2 { font-size: 38px; }
+        }
+
+        @media (max-width: 600px) {
+            .navbar { padding: 15px 4%; }
+            .nav-logo h2 { font-size: 16px; }
+            .nav-links { gap: 15px; }
+            .nav-links a { font-size: 12px; }
+            .category-section { padding: 50px 5%; }
+            .services-grid { grid-template-columns: 1fr; }
+            .form-row-inputs { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <h2>Lush Looks Parlour</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Our Services</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+        </ul>
+        <div></div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+        <span class="page-hero-tag">Everything We Offer</span>
+        <h1>Beauty, Tailored<br>Just for You</h1>
+        <p>From everyday grooming to bridal transformations — explore our full menu of expert treatments at honest prices.</p>
+    </div>
+
+    <!-- CATEGORY FILTER TABS -->
+    <div class="category-nav">
+        <button class="cat-tab active" onclick="filterCategory('all', this)">All Services</button>
+        <button class="cat-tab" onclick="filterCategory('skin', this)">Skin & Face</button>
+        <button class="cat-tab" onclick="filterCategory('hair', this)">Hair</button>
+        <button class="cat-tab" onclick="filterCategory('makeup', this)">Makeup</button>
+        <button class="cat-tab" onclick="filterCategory('hands', this)">Hands & Feet</button>
+        <button class="cat-tab" onclick="filterCategory('brows', this)">Brows & Lashes</button>
+    </div>
+
+    <!-- ════ SKIN & FACE ════ -->
+    <section class="category-section" id="cat-skin" data-cat="skin">
+        <div class="category-header">
+            <div class="category-header-left">
+                <span>Skin & Face</span>
+                <h2>Glow Treatments</h2>
+            </div>
+            <div class="category-count">5 services</div>
+        </div>
+        <div class="services-grid">
+
+            <!-- FEATURED WIDE CARD -->
+            <div class="service-card-full service-card-wide" data-service="bridal-facial">
+                <div class="wide-content">
+                    <span class="card-badge">⭐ Most Booked</span>
+                    <h3>Bridal Glow Facial Package</h3>
+                    <p class="duration-tag">⏱ 90 minutes</p>
+                    <p>Our signature pre-bridal ritual: deep cleanse, vitamin C brightening mask, gold-leaf infusion, and lymphatic face massage. Leaves skin luminous and camera-ready for your big day.</p>
+                    <button class="book-btn" onclick="openModal('Bridal Glow Facial Package')">Book Now</button>
+                </div>
+                <div class="wide-price-block">
+                    <span>Starting from</span>
+                    <div class="price-big"><span class="currency">Rs</span> 3,500</div>
+                </div>
+            </div>
+
+            <div class="service-card-full" data-service="signature-facial">
+                <div class="card-body">
+                    <span class="card-badge badge-popular">Popular</span>
+                    <h3>Signature Facial</h3>
+                    <p class="duration-tag">⏱ 45 minutes</p>
+                    <hr class="card-divider">
+                    <p>A thorough cleanse, steam, extraction, and hydrating mask suited to your skin type. Perfect for a weekly refresh.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 800</div>
+                    <button class="book-btn" onclick="openModal('Signature Facial')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full" data-service="detan-facial">
+                <div class="card-body">
+                    <span class="card-badge badge-new">New</span>
+                    <h3>De-Tan & Brightening Facial</h3>
+                    <p class="duration-tag">⏱ 60 minutes</p>
+                    <hr class="card-divider">
+                    <p>Targets sun damage and uneven skin tone. Uses vitamin C serums and rice-enzyme exfoliation for instant brightness.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,200</div>
+                    <button class="book-btn" onclick="openModal('De-Tan & Brightening Facial')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full" data-service="cleanup">
+                <div class="card-body">
+                    <h3>Express Face Cleanup</h3>
+                    <p class="duration-tag">⏱ 25 minutes</p>
+                    <hr class="card-divider">
+                    <p>Quick but effective: cleanse, tone, scrub, and moisturise in one seamless session. Great for busy schedules.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 500</div>
+                    <button class="book-btn" onclick="openModal('Express Face Cleanup')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full" data-service="gold-facial">
+                <div class="card-body">
+                    <span class="card-badge badge-premium">Premium</span>
+                    <h3>24K Gold Luxury Facial</h3>
+                    <p class="duration-tag">⏱ 75 minutes</p>
+                    <hr class="card-divider">
+                    <p>Real gold-infused serums and jade gua sha massage to firm, tighten, and restore youthful radiance to the skin.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 2,200</div>
+                    <button class="book-btn" onclick="openModal('24K Gold Luxury Facial')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ HAIR ════ -->
+    <section class="category-section" id="cat-hair" data-cat="hair">
+        <div class="category-header">
+            <div class="category-header-left">
+                <span>Hair</span>
+                <h2>Styling & Treatments</h2>
+            </div>
+            <div class="category-count">6 services</div>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card-full service-card-wide" data-service="bridal-hair">
+                <div class="wide-content">
+                    <span class="card-badge">💎 Signature</span>
+                    <h3>Bridal Hair Styling</h3>
+                    <p class="duration-tag">⏱ 120 minutes</p>
+                    <p>Full bridal updo, blow-dry, and setting with heat-protectant premium products. Trial session included. We work with your vision — from classic buns to modern waves.</p>
+                    <button class="book-btn" onclick="openModal('Bridal Hair Styling')">Book Now</button>
+                </div>
+                <div class="wide-price-block">
+                    <span>Starting from</span>
+                    <div class="price-big"><span class="currency">Rs</span> 4,000</div>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-popular">Popular</span>
+                    <h3>Blow Dry & Setting</h3>
+                    <p class="duration-tag">⏱ 45 minutes</p>
+                    <hr class="card-divider">
+                    <p>Professional blow-out with volumising mousse, finished to sleek perfection or bouncy waves.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,200</div>
+                    <button class="book-btn" onclick="openModal('Blow Dry & Setting')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Keratin Smoothing Treatment</h3>
+                    <p class="duration-tag">⏱ 150 minutes</p>
+                    <hr class="card-divider">
+                    <p>Deep keratin infusion to eliminate frizz and add lasting shine. Results last up to 3 months.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 5,000</div>
+                    <button class="book-btn" onclick="openModal('Keratin Smoothing Treatment')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-new">New</span>
+                    <h3>Hair Spa & Scalp Massage</h3>
+                    <p class="duration-tag">⏱ 60 minutes</p>
+                    <hr class="card-divider">
+                    <p>Nourishing deep-conditioning mask, steam treatment, and relaxing scalp massage with argan oil.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,800</div>
+                    <button class="book-btn" onclick="openModal('Hair Spa & Scalp Massage')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Hair Cut & Trim</h3>
+                    <p class="duration-tag">⏱ 30 minutes</p>
+                    <hr class="card-divider">
+                    <p>Precision cut by our trained stylists, with advice on the best style to complement your face shape.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 700</div>
+                    <button class="book-btn" onclick="openModal('Hair Cut & Trim')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-premium">Premium</span>
+                    <h3>Hair Colouring & Highlights</h3>
+                    <p class="duration-tag">⏱ 120+ minutes</p>
+                    <hr class="card-divider">
+                    <p>Global colour, balayage, or foil highlights using ammonia-free, gentle international colour brands.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 3,500</div>
+                    <button class="book-btn" onclick="openModal('Hair Colouring & Highlights')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ MAKEUP ════ -->
+    <section class="category-section" id="cat-makeup" data-cat="makeup">
+        <div class="category-header">
+            <div class="category-header-left">
+                <span>Makeup</span>
+                <h2>Artistry & Glam</h2>
+            </div>
+            <div class="category-count">4 services</div>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card-full service-card-wide" data-service="bridal-makeup">
+                <div class="wide-content">
+                    <span class="card-badge">👑 Best Seller</span>
+                    <h3>Full Bridal Makeup</h3>
+                    <p class="duration-tag">⏱ 3 hours</p>
+                    <p>Complete bridal transformation with HD foundation, contouring, airbrush finish, and all-day setting spray. Includes trial session. International brand products only.</p>
+                    <button class="book-btn" onclick="openModal('Full Bridal Makeup')">Book Now</button>
+                </div>
+                <div class="wide-price-block">
+                    <span>Starting from</span>
+                    <div class="price-big"><span class="currency">Rs</span> 8,000</div>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-popular">Popular</span>
+                    <h3>Party & Event Makeup</h3>
+                    <p class="duration-tag">⏱ 60 minutes</p>
+                    <hr class="card-divider">
+                    <p>Glamorous, occasion-ready makeup for weddings, dinners, graduations, or any special event.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 2,500</div>
+                    <button class="book-btn" onclick="openModal('Party & Event Makeup')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Everyday Natural Makeup</h3>
+                    <p class="duration-tag">⏱ 40 minutes</p>
+                    <hr class="card-divider">
+                    <p>Light, polished everyday look. Skin-first approach with tinted moisturiser, subtle eye and lip colour.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,200</div>
+                    <button class="book-btn" onclick="openModal('Everyday Natural Makeup')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-new">New</span>
+                    <h3>Airbrush Makeup</h3>
+                    <p class="duration-tag">⏱ 75 minutes</p>
+                    <hr class="card-divider">
+                    <p>Flawless micro-spray foundation application for a skin-like finish that photographs beautifully and lasts all day.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 3,000</div>
+                    <button class="book-btn" onclick="openModal('Airbrush Makeup')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ HANDS & FEET ════ -->
+    <section class="category-section" id="cat-hands" data-cat="hands">
+        <div class="category-header">
+            <div class="category-header-left">
+                <span>Hands & Feet</span>
+                <h2>Nail & Polish Care</h2>
+            </div>
+            <div class="category-count">4 services</div>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-popular">Popular</span>
+                    <h3>Premium Gel Manicure</h3>
+                    <p class="duration-tag">⏱ 50 minutes</p>
+                    <hr class="card-divider">
+                    <p>Nail shaping, cuticle care, hand scrub, and long-lasting gel polish in your choice of colour.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,000</div>
+                    <button class="book-btn" onclick="openModal('Premium Gel Manicure')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Classic Pedicure</h3>
+                    <p class="duration-tag">⏱ 50 minutes</p>
+                    <hr class="card-divider">
+                    <p>Foot soak, callus removal, nail shaping, foot massage, and a coat of your favourite nail colour.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,000</div>
+                    <button class="book-btn" onclick="openModal('Classic Pedicure')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-premium">Premium</span>
+                    <h3>Spa Manicure + Pedicure Combo</h3>
+                    <p class="duration-tag">⏱ 90 minutes</p>
+                    <hr class="card-divider">
+                    <p>The full works: both hands and feet treated with scrub, mask, hot towel wrap, massage, and gel polish.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,800</div>
+                    <button class="book-btn" onclick="openModal('Spa Manicure + Pedicure Combo')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-new">New</span>
+                    <h3>Nail Art & Extensions</h3>
+                    <p class="duration-tag">⏱ 60–90 minutes</p>
+                    <hr class="card-divider">
+                    <p>Custom hand-painted nail art, ombre, French tips, or acrylic/gel extensions to your desired length.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,500</div>
+                    <button class="book-btn" onclick="openModal('Nail Art & Extensions')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ════ BROWS & LASHES ════ -->
+    <section class="category-section" id="cat-brows" data-cat="brows">
+        <div class="category-header">
+            <div class="category-header-left">
+                <span>Brows & Lashes</span>
+                <h2>Definition & Detail</h2>
+            </div>
+            <div class="category-count">4 services</div>
+        </div>
+        <div class="services-grid">
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-popular">Popular</span>
+                    <h3>Eyebrow Threading & Shaping</h3>
+                    <p class="duration-tag">⏱ 15 minutes</p>
+                    <hr class="card-divider">
+                    <p>Expert threading and mapping to achieve clean, symmetrical brows that frame your face perfectly.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 150</div>
+                    <button class="book-btn" onclick="openModal('Eyebrow Threading & Shaping')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Eyebrow Tinting</h3>
+                    <p class="duration-tag">⏱ 20 minutes</p>
+                    <hr class="card-divider">
+                    <p>Safe vegetable-based tint applied to brows for a fuller, more defined look. Lasts up to 4 weeks.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 400</div>
+                    <button class="book-btn" onclick="openModal('Eyebrow Tinting')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <span class="card-badge badge-new">New</span>
+                    <h3>Lash Lift & Tint</h3>
+                    <p class="duration-tag">⏱ 45 minutes</p>
+                    <hr class="card-divider">
+                    <p>Lifts and curls your natural lashes from the root, with a tint for dark, mascara-free definition for up to 6 weeks.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 1,500</div>
+                    <button class="book-btn" onclick="openModal('Lash Lift & Tint')">Book Now</button>
+                </div>
+            </div>
+
+            <div class="service-card-full">
+                <div class="card-body">
+                    <h3>Upper Lip & Face Threading</h3>
+                    <p class="duration-tag">⏱ 10–20 minutes</p>
+                    <hr class="card-divider">
+                    <p>Gentle, precise facial threading for upper lip, chin, forehead, and sideburns. Quick and affordable.</p>
+                </div>
+                <div class="card-footer">
+                    <div class="card-price"><span>Starting from</span>Rs 100</div>
+                    <button class="book-btn" onclick="openModal('Upper Lip & Face Threading')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+        <h2>Ready to Be Pampered?</h2>
+        <p>Book any service today and experience the Lush Looks difference — expert care at prices everyone deserves.</p>
+        <button class="cta-btn" onclick="openModal('')">Book an Appointment</button>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>© 2025 Lush Looks Parlour · Satellite Town, Bahawalpur · +92 xxxxxxxxxxxxxxx</p>
+    </div>
+
+    <!-- BOOKING MODAL -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Book Your Session</h2>
+            <p class="modal-subtitle">Select a service and fill in your details to reserve your slot.</p>
+
+            <div class="form-group">
+                <label for="serviceSelect">Select Service & Rate:</label>
+                <select id="serviceSelect" required>
+                    <option value="" disabled selected>-- Choose a treatment --</option>
+                    <optgroup label="Skin & Face">
+                        <option value="bridal-glow-facial">Bridal Glow Facial Package — Rs 3,500</option>
+                        <option value="signature-facial">Signature Facial — Rs 800</option>
+                        <option value="detan-facial">De-Tan & Brightening Facial — Rs 1,200</option>
+                        <option value="express-cleanup">Express Face Cleanup — Rs 500</option>
+                        <option value="gold-facial">24K Gold Luxury Facial — Rs 2,200</option>
+                    </optgroup>
+                    <optgroup label="Hair">
+                        <option value="bridal-hair">Bridal Hair Styling — Rs 4,000</option>
+                        <option value="blowdry">Blow Dry & Setting — Rs 1,200</option>
+                        <option value="keratin">Keratin Smoothing Treatment — Rs 5,000</option>
+                        <option value="hair-spa">Hair Spa & Scalp Massage — Rs 1,800</option>
+                        <option value="haircut">Hair Cut & Trim — Rs 700</option>
+                        <option value="colour">Hair Colouring & Highlights — Rs 3,500</option>
+                    </optgroup>
+                    <optgroup label="Makeup">
+                        <option value="bridal-makeup">Full Bridal Makeup — Rs 8,000</option>
+                        <option value="party-makeup">Party & Event Makeup — Rs 2,500</option>
+                        <option value="everyday-makeup">Everyday Natural Makeup — Rs 1,200</option>
+                        <option value="airbrush">Airbrush Makeup — Rs 3,000</option>
+                    </optgroup>
+                    <optgroup label="Hands & Feet">
+                        <option value="gel-manicure">Premium Gel Manicure — Rs 1,000</option>
+                        <option value="pedicure">Classic Pedicure — Rs 1,000</option>
+                        <option value="mani-pedi-combo">Spa Manicure + Pedicure Combo — Rs 1,800</option>
+                        <option value="nail-art">Nail Art & Extensions — Rs 1,500</option>
+                    </optgroup>
+                    <optgroup label="Brows & Lashes">
+                        <option value="threading">Eyebrow Threading & Shaping — Rs 150</option>
+                        <option value="brow-tint">Eyebrow Tinting — Rs 400</option>
+                        <option value="lash-lift">Lash Lift & Tint — Rs 1,500</option>
+                        <option value="face-threading">Upper Lip & Face Threading — Rs 100</option>
+                    </optgroup>
+                </select>
+            </div>
+
+            <div class="form-row-inputs">
+                <div class="form-group">
+                    <label for="clientName">Your Name:</label>
+                    <input type="text" id="clientName" placeholder="e.g., Ayesha Khan" required>
+                </div>
+                <div class="form-group">
+                    <label for="clientPhone">Phone Number:</label>
+                    <input type="tel" id="clientPhone" placeholder="e.g., 03001234567" required>
+                </div>
+            </div>
+
+            <div class="form-row-inputs">
+                <div class="form-group">
+                    <label for="bookingDate">Preferred Date:</label>
+                    <input type="date" id="bookingDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookingTime">Preferred Time:</label>
+                    <input type="time" id="bookingTime" required>
+                </div>
+            </div>
+
+            <button class="submit-booking-btn" onclick="submitBooking()">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script>
+        // ── CATEGORY FILTER ──
+        function filterCategory(cat, btn) {
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+
+            const sections = document.querySelectorAll('.category-section');
+            sections.forEach(sec => {
+                if (cat === 'all' || sec.dataset.cat === cat) {
+                    sec.style.display = 'block';
+                } else {
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        // ── MODAL ──
+        const modal = document.getElementById('bookingModal');
+        const serviceSelect = document.getElementById('serviceSelect');
+
+        // Map service names to option values
+        const serviceMap = {
+            'Bridal Glow Facial Package': 'bridal-glow-facial',
+            'Signature Facial': 'signature-facial',
+            'De-Tan & Brightening Facial': 'detan-facial',
+            'Express Face Cleanup': 'express-cleanup',
+            '24K Gold Luxury Facial': 'gold-facial',
+            'Bridal Hair Styling': 'bridal-hair',
+            'Blow Dry & Setting': 'blowdry',
+            'Keratin Smoothing Treatment': 'keratin',
+            'Hair Spa & Scalp Massage': 'hair-spa',
+            'Hair Cut & Trim': 'haircut',
+            'Hair Colouring & Highlights': 'colour',
+            'Full Bridal Makeup': 'bridal-makeup',
+            'Party & Event Makeup': 'party-makeup',
+            'Everyday Natural Makeup': 'everyday-makeup',
+            'Airbrush Makeup': 'airbrush',
+            'Premium Gel Manicure': 'gel-manicure',
+            'Classic Pedicure': 'pedicure',
+            'Spa Manicure + Pedicure Combo': 'mani-pedi-combo',
+            'Nail Art & Extensions': 'nail-art',
+            'Eyebrow Threading & Shaping': 'threading',
+            'Eyebrow Tinting': 'brow-tint',
+            'Lash Lift & Tint': 'lash-lift',
+            'Upper Lip & Face Threading': 'face-threading',
+        };
+
+        function openModal(serviceName) {
+            modal.classList.add('show');
+            if (serviceName && serviceMap[serviceName]) {
+                serviceSelect.value = serviceMap[serviceName];
+            } else {
+                serviceSelect.value = '';
+            }
+        }
+
+        document.querySelector('.close-modal').addEventListener('click', () => modal.classList.remove('show'));
+        window.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('show'); });
+
+        function submitBooking() {
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const svc = serviceSelect.options[serviceSelect.selectedIndex]?.text || '';
+
+            if (!svc || !name || !phone || !date || !time) {
+                alert('Please fill in all fields before confirming.');
+                return;
+            }
+
+            alert(`Thank you, ${name}! Your appointment for "${svc}" on ${date} at ${time} has been received. We'll contact you at ${phone} to confirm your slot!`);
+            document.getElementById('clientName').value = '';
+            document.getElementById('clientPhone').value = '';
+            document.getElementById('bookingDate').value = '';
+            document.getElementById('bookingTime').value = '';
+            serviceSelect.value = '';
+            modal.classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
