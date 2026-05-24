@@ -8,8 +8,6 @@ const serviceSelect = document.getElementById("serviceSelect");
 document.querySelectorAll(".book-service-btn").forEach((button, index) => {
     button.addEventListener("click", function() {
         bookingModal.classList.add("show");
-        
-        // Smart Defaulting: Selects the correct service inside the menu dropdown automatically!
         if (index === 0) serviceSelect.value = "facial";
         if (index === 1) serviceSelect.value = "hair";
         if (index === 2) serviceSelect.value = "makeup";
@@ -30,19 +28,22 @@ window.addEventListener("click", (event) => {
 
 // 4. Form Submission Handler
 appointmentForm.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevents page reload trap
-
-    // Extract captured inputs
+    event.preventDefault();
     const chosenService = serviceSelect.options[serviceSelect.selectedIndex].text;
     const clientName = document.getElementById("clientName").value;
     const clientPhone = document.getElementById("clientPhone").value;
     const chosenDate = document.getElementById("bookingDate").value;
     const chosenTime = document.getElementById("bookingTime").value;
-
-    // Output Success Confirmation
     alert(`Thank you, ${clientName}! Your appointment request for a "${chosenService}" on ${chosenDate} at ${chosenTime} has been received. We will contact you at ${clientPhone} to confirm your slot!`);
-    
-    // Reset inputs and close window container
     appointmentForm.reset();
     bookingModal.classList.remove("show");
+});
+
+// 5. Remove active underline from nav links after tap/click
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", function () {
+        setTimeout(() => {
+            document.querySelectorAll(".nav-links a").forEach(l => l.classList.remove("active"));
+        }, 800);
+    });
 });

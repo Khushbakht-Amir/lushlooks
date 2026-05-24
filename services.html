@@ -40,9 +40,9 @@
         }
         .nav-logo h2 {
             font-family: 'Instrument Serif', serif;
-            font-size: 22px;
+            font-size: 26px;
             color: var(--brown-dark);
-            font-weight: 500;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
         .nav-links { display: flex; gap: 35px; list-style: none; }
@@ -63,10 +63,8 @@
             background: var(--brown-accent);
             transition: width 0.3s;
         }
-        .nav-links a:hover::after,
-        .nav-links a.active::after { width: 100%; }
-        .nav-links a:hover,
-        .nav-links a.active { color: var(--brown-accent); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--brown-accent); }
 
         /* ── PAGE HERO ── */
         .page-hero {
@@ -166,7 +164,7 @@
             gap: 20px;
         }
 
-        /* ── SERVICE CARD (no button) ── */
+        /* ── SERVICE CARD ── */
         .service-card-full {
             background: var(--cream-card);
             border-radius: 14px;
@@ -190,7 +188,7 @@
             font-weight: 400;
         }
 
-        /* price rows inside a card */
+        /* price table */
         .price-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
         .price-table tr { border-top: 1px solid var(--border); }
         .price-table tr:first-child { border-top: none; }
@@ -214,7 +212,7 @@
             margin-right: 2px;
         }
 
-        /* ── WIDE FEATURED CARD ── */
+        /* ── DARK WIDE CARD ── */
         .service-card-wide {
             grid-column: 1 / -1;
             display: flex;
@@ -224,6 +222,7 @@
             overflow: hidden;
             color: #fff;
             border: none;
+            transition: box-shadow 0.35s, transform 0.35s;
         }
         .service-card-wide:hover {
             box-shadow: 0 20px 50px rgba(47,31,22,0.25);
@@ -249,7 +248,7 @@
         .wide-content .price-table td.price-val { color: #fff; }
         .wide-content .price-table td.price-val .rs { color: rgba(255,255,255,0.5); }
 
-        /* ── LIGHT WIDE CARD (full-width, cream background) ── */
+        /* ── LIGHT WIDE CARD ── */
         .service-card-wide-light {
             grid-column: 1 / -1;
             background: var(--cream-card);
@@ -311,7 +310,7 @@
         }
         @media (max-width: 600px) {
             .navbar { padding: 15px 4%; }
-            .nav-logo h2 { font-size: 16px; }
+            .nav-logo h2 { font-size: 18px; }
             .nav-links { gap: 15px; }
             .nav-links a { font-size: 14px; }
             .category-section { padding: 50px 5%; }
@@ -343,13 +342,13 @@
 
 <!-- CATEGORY TABS -->
 <div class="category-nav">
-    <button class="cat-tab active"   onclick="filterCategory('all',    this)">All Services</button>
-    <button class="cat-tab"          onclick="filterCategory('facial',  this)">Facial</button>
-    <button class="cat-tab"          onclick="filterCategory('bridal',  this)">Bridal Makeup</button>
-    <button class="cat-tab"          onclick="filterCategory('polish',  this)">Skin Polish</button>
-    <button class="cat-tab"          onclick="filterCategory('wax',     this)">Wax</button>
-    <button class="cat-tab"          onclick="filterCategory('hair',    this)">Hair Service</button>
-    <button class="cat-tab"          onclick="filterCategory('other',   this)">Other Services</button>
+    <button class="cat-tab active" onclick="filterCategory('all',    this)">All Services</button>
+    <button class="cat-tab"        onclick="filterCategory('facial',  this)">Facial</button>
+    <button class="cat-tab"        onclick="filterCategory('bridal',  this)">Bridal Makeup</button>
+    <button class="cat-tab"        onclick="filterCategory('polish',  this)">Skin Polish</button>
+    <button class="cat-tab"        onclick="filterCategory('wax',     this)">Wax</button>
+    <button class="cat-tab"        onclick="filterCategory('hair',    this)">Hair Service</button>
+    <button class="cat-tab"        onclick="filterCategory('other',   this)">Other Services</button>
 </div>
 
 <!-- ════ FACIAL ════ -->
@@ -362,8 +361,6 @@
         <div class="category-count">6 services</div>
     </div>
     <div class="services-grid">
-
-        <!-- featured light wide -->
         <div class="service-card-full service-card-wide-light">
             <div class="card-body">
                 <span style="font-style:italic; color:var(--brown-accent); font-size:14px; display:block; margin-bottom:10px;">★ Most Requested</span>
@@ -378,7 +375,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -392,7 +388,6 @@
         <div class="category-count">5 services</div>
     </div>
     <div class="services-grid">
-
         <div class="service-card-full service-card-wide">
             <div class="wide-content">
                 <span class="wide-label">★ Signature Collection</span>
@@ -406,7 +401,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -420,7 +414,6 @@
         <div class="category-count">4 services</div>
     </div>
     <div class="services-grid">
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Polish Treatments</h3>
@@ -431,7 +424,6 @@
                 </table>
             </div>
         </div>
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Full Body Polish</h3>
@@ -440,7 +432,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -454,7 +445,6 @@
         <div class="category-count">4 services</div>
     </div>
     <div class="services-grid">
-
         <div class="service-card-full service-card-wide">
             <div class="wide-content">
                 <span class="wide-label">Smooth &amp; Long-Lasting</span>
@@ -467,7 +457,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -481,7 +470,6 @@
         <div class="category-count">3 services</div>
     </div>
     <div class="services-grid">
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Hair Cuts</h3>
@@ -491,7 +479,6 @@
                 </table>
             </div>
         </div>
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Hair Style</h3>
@@ -501,7 +488,6 @@
                 </table>
             </div>
         </div>
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Hair Dye</h3>
@@ -511,7 +497,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -525,7 +510,6 @@
         <div class="category-count">3 services</div>
     </div>
     <div class="services-grid">
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Brows &amp; Lips</h3>
@@ -535,7 +519,6 @@
                 </table>
             </div>
         </div>
-
         <div class="service-card-full">
             <div class="card-body">
                 <h3>Mani &amp; Pedi</h3>
@@ -544,7 +527,6 @@
                 </table>
             </div>
         </div>
-
     </div>
 </section>
 

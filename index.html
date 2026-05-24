@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lush Looks</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,20 +18,12 @@
             <li><a href="#services">Our Services</a></li>
             <li><a href="#about">About Us</a></li>
         </ul>
-        <!-- <div class="nav-utilities">
-            <div class="user-profile-circle">K</div>
-            <div class="cart-icon">
-                <span class="bag-emoji">👜</span>
-                <span class="cart-count">0</span>
-            </div>
-        </div> -->
         <div></div>
     </nav>
 
     <section id="home">
         <div class="hero-content">
-            <h1>Salon-Perfect Beauty at Prices You’ll Love</h1>
-            
+            <h1>Salon-Perfect Beauty at Prices You'll Love</h1>
             <div class="hero-gallery">
                 <div class="hero-img-card">
                     <img src="images/salon.jpg" alt="Salon Interior">
@@ -44,7 +35,6 @@
                     <img src="images/skincare.jpg" alt="Skincare Products">
                 </div>
             </div>
-            
             <p class="hero-description">
                 Enjoy expert hair, makeup and facials in a relaxing space—without the luxury price tag. Book your next pampering session today.
             </p>
@@ -73,7 +63,7 @@
                 <div class="service-card">
                     <h3>Hair Styling</h3>
                     <hr class="card-divider">
-                    <p class="service-price">From Rs 1,200</p>
+                    <p class="service-price">From Rs 1,000</p>
                 </div>
             </div>
 
@@ -84,20 +74,21 @@
                 <div class="service-card">
                     <h3>Makeup</h3>
                     <hr class="card-divider">
-                    <p class="service-price">From Rs 2,500</p>
+                    <p class="service-price">From Rs 3,000</p>
                 </div>
             </div>
 
         </div>
+
         <div class="view-all-wrapper">
-    <a href="services.html" class="view-all-btn">
-        <span>View All Services</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-    </a>
-    <p class="view-all-hint">Explore 20+ services across 5 categories</p>
-</div>
+            <a href="services.html" class="view-all-btn">
+                <span>View All Services</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+            <p class="view-all-hint">Explore 20+ services across 5 categories</p>
+        </div>
     </section>
 
     <section id="about">
@@ -128,57 +119,53 @@
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-info">
-            <p><strong>Address:</strong> Lush Looks Parlour, near Commercial Area, Satellite Town, Bahawalpur</p>
+            <p><strong>Address:</strong>  Lush Looks Parlour,House no 586c, near Commercial Area, Satellite Town, Bahawalpur</p>
             <p><strong>Phone:</strong> +92 306 4247450</p>
         </div>
     </section>
 
-    <script src="script.js"></script>
     <div id="bookingModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        
-        <h2>Book Your Pampering Session</h2>
-        <p class="modal-subtitle">Select a service and fill in your details to reserve your slot.</p>
-
-        <form id="appointmentForm">
-            <div class="form-group">
-                <label for="serviceSelect">Select Service & Rate:</label>
-                <select id="serviceSelect" required>
-                    <option value="" disabled selected>-- Choose a treatment --</option>
-                    <option value="facial">Signature Facial — Rs 800</option>
-                    <option value="hair">Luxury Hair Styling — Rs 1,200</option>
-                    <option value="makeup">Bridal & Party Makeup — Rs 2,500</option>
-                    <option value="threading">Eyebrow Threading & Shaping — Rs 150</option>
-                    <option value="manicure">Premium Gel Manicure — Rs 1,000</option>
-                </select>
-            </div>
-
-            <div class="form-row-inputs">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Book Your Pampering Session</h2>
+            <p class="modal-subtitle">Select a service and fill in your details to reserve your slot.</p>
+            <form id="appointmentForm">
                 <div class="form-group">
-                    <label for="clientName">Your Name:</label>
-                    <input type="text" id="clientName" placeholder="e.g., Ayesha Khan" required>
+                    <label for="serviceSelect">Select Service & Rate:</label>
+                    <select id="serviceSelect" required>
+                        <option value="" disabled selected>-- Choose a treatment --</option>
+                        <option value="facial">Signature Facial — Rs 800</option>
+                        <option value="hair">Hair Styling — Rs 1,000</option>
+                        <option value="makeup">Party Makeup — Rs 3,000</option>
+                        <option value="threading">Eye Brows — Rs 200</option>
+                        <option value="manicure">Mani & Pedi — Rs 3,000</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label for="clientPhone">Phone Number:</label>
-                    <input type="tel" id="clientPhone" placeholder="e.g., 03001234567" required>
+                <div class="form-row-inputs">
+                    <div class="form-group">
+                        <label for="clientName">Your Name:</label>
+                        <input type="text" id="clientName" placeholder="e.g., Ayesha Khan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="clientPhone">Phone Number:</label>
+                        <input type="tel" id="clientPhone" placeholder="e.g., 03001234567" required>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-row-inputs">
-                <div class="form-group">
-                    <label for="bookingDate">Preferred Date:</label>
-                    <input type="date" id="bookingDate" required>
+                <div class="form-row-inputs">
+                    <div class="form-group">
+                        <label for="bookingDate">Preferred Date:</label>
+                        <input type="date" id="bookingDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookingTime">Preferred Time:</label>
+                        <input type="time" id="bookingTime" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="bookingTime">Preferred Time:</label>
-                    <input type="time" id="bookingTime" required>
-                </div>
-            </div>
-
-            <button type="submit" class="submit-booking-btn">Confirm Booking</button>
-        </form>
+                <button type="submit" class="submit-booking-btn">Confirm Booking</button>
+            </form>
+        </div>
     </div>
-</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
