@@ -39,11 +39,36 @@ appointmentForm.addEventListener("submit", function(event) {
     bookingModal.classList.remove("show");
 });
 
-// 5. Remove active underline from nav links after tap/click
-document.querySelectorAll(".nav-links a").forEach(link => {
+// 5. Highlight nav link based on which section is currently visible
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-links a");
+
+function setActiveLink(id) {
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + id) {
+            link.classList.add("active");
+        }
+    });
+}
+
+// Intersection Observer: fires whenever a section enters/leaves the viewport
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            setActiveLink(entry.target.id);
+        }
+    });
+}, {
+    threshold: 0.3   // section must be 30% visible to trigger
+});
+
+sections.forEach(section => observer.observe(section));
+
+// Also update instantly on click before scroll settles
+navLinks.forEach(link => {
     link.addEventListener("click", function () {
-        setTimeout(() => {
-            document.querySelectorAll(".nav-links a").forEach(l => l.classList.remove("active"));
-        }, 800);
+        const targetId = this.getAttribute("href").replace("#", "");
+        setActiveLink(targetId);
     });
 });
